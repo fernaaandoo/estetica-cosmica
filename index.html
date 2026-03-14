@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estética Cósmica — Belleza Natural en Madrid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F7F3EE;
+      --warm-white: #FDFAF6;
+      --blush: #E8D5C4;
+      --rose: #C9A98A;
+      --deep-rose: #9A7057;
+      --charcoal: #2C2420;
+      --mid: #6B5448;
+      --light-mid: #A89080;
+      --gold: #BFA080;
+      --line: rgba(180,150,120,0.2);
+      --radius: 2px;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--warm-white);
+      color: var(--charcoal);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── SIDEBAR INDEX ─── */
+    #sidebar-toggle {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      z-index: 1000;
+      background: var(--charcoal);
+      color: var(--cream);
+      border: none;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      border-radius: 1px;
+      transition: background 0.3s;
+    }
+    #sidebar-toggle span {
+      width: 20px;
+      height: 1px;
+      background: var(--cream);
+      transition: all 0.3s;
+      display: block;
+    }
+    #sidebar-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    #sidebar-toggle.open span:nth-child(2) { opacity: 0; }
+    #sidebar-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      width: 280px;
+      height: 100vh;
+      background: var(--charcoal);
+      z-index: 999;
+      transition: left 0.4s cubic-bezier(.77,0,.175,1);
+      padding: 80px 40px 40px;
+      display: flex;
+      flex-direction: column;
+    }
+    #sidebar.open { left: 0; }
+
+    #sidebar .sidebar-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--blush);
+      font-size: 1.1rem;
+      margin-bottom: 48px;
+      letter-spacing: 0.1em;
+    }
+
+    #sidebar nav a {
+      display: block;
+      color: rgba(247,243,238,0.7);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.2s;
+    }
+    #sidebar nav a:hover { color: var(--blush); }
+    #sidebar nav a.highlight {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    #sidebar-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 998;
+      display: none;
+      backdrop-filter: blur(2px);
+    }
+    #sidebar-overlay.open { display: block; }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(253,250,246,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 72px;
+      padding: 0 80px 0 80px;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--charcoal);
+      letter-spacing: 0.12em;
+      text-decoration: none;
+    }
+    .logo span { color: var(--deep-rose); }
+
+    header nav {
+      position: absolute;
+      right: 40px;
+      display: flex;
+      gap: 36px;
+    }
+    header nav a {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    header nav a:hover { color: var(--charcoal); }
+
+    .btn-reservar-header {
+      background: var(--charcoal);
+      color: var(--cream) !important;
+      padding: 10px 22px;
+      border-radius: 1px;
+      font-size: 0.7rem !important;
+      letter-spacing: 0.18em !important;
+    }
+    .btn-reservar-header:hover { background: var(--deep-rose) !important; color: var(--cream) !important; }
+
+    /* ─── HERO ─── */
+    #inicio {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 100px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--charcoal);
+      margin-bottom: 28px;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--deep-rose);
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--mid);
+      max-width: 420px;
+      margin-bottom: 48px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--charcoal);
+      color: var(--cream);
+      border: none;
+      padding: 14px 32px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 1px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .btn-primary:hover { background: var(--deep-rose); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--charcoal);
+      border: 1px solid var(--charcoal);
+      padding: 14px 32px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 1px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    .btn-secondary:hover { background: var(--charcoal); color: var(--cream); }
+
+    .hero-image {
+      background: var(--blush);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image-inner {
+      width: 100%;
+      height: 100%;
+      background:
+        linear-gradient(135deg, rgba(201,169,138,0.3) 0%, transparent 60%),
+        url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80') center/cover;
+      display: flex;
+      align-items: flex-end;
+      padding: 48px;
+    }
+    .hero-badge {
+      background: rgba(253,250,246,0.92);
+      backdrop-filter: blur(8px);
+      padding: 20px 28px;
+      border-left: 2px solid var(--deep-rose);
+    }
+    .hero-badge p {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+    }
+    .hero-badge strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      display: block;
+      color: var(--charcoal);
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      padding: 100px 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+    }
+    h2 em { font-style: italic; color: var(--deep-rose); }
+
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    /* ─── NOSOTRAS ─── */
+    #nosotras {
+      background: var(--cream);
+    }
+
+    .nosotras-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .nosotras-image {
+      aspect-ratio: 4/5;
+      background:
+        url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=700&q=80') center/cover;
+      border-radius: 1px;
+      position: relative;
+    }
+    .nosotras-image::after {
+      content: '';
+      position: absolute;
+      inset: 16px -16px -16px 16px;
+      border: 1px solid var(--blush);
+      z-index: -1;
+      border-radius: 1px;
+    }
+
+    .nosotras-text p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--mid);
+      margin-bottom: 20px;
+    }
+
+    .valores-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .valor-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .valor-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-style: italic;
+      color: var(--blush);
+      line-height: 1;
+      min-width: 36px;
+    }
+    .valor-text strong {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+    .valor-text span {
+      font-size: 0.88rem;
+      color: var(--light-mid);
+    }
+
+    /* ─── SERVICIOS ─── */
+    #servicios {
+      background: var(--warm-white);
+    }
+
+    .servicios-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 72px;
+    }
+
+    .servicios-intro p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--mid);
+      align-self: end;
+    }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .servicio-card {
+      background: var(--cream);
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: background 0.3s;
+    }
+    .servicio-card:hover {
+      background: var(--charcoal);
+    }
+    .servicio-card:hover h3,
+    .servicio-card:hover .servicio-desc,
+    .servicio-card:hover .servicio-precio {
+      color: var(--cream);
+    }
+    .servicio-card:hover .servicio-icon {
+      opacity: 0.3;
+    }
+
+    .servicio-icon {
+      font-size: 2rem;
+      margin-bottom: 24px;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .servicio-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--mid);
+      margin-bottom: 20px;
+      transition: color 0.3s;
+    }
+
+    .servicio-precio {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+      transition: color 0.3s;
+    }
+
+    .servicios-cta {
+      text-align: center;
+      margin-top: 64px;
+    }
+
+    /* ─── GALERIA ─── */
+    #galeria {
+      background: var(--charcoal);
+      padding: 80px 0;
+    }
+    #galeria h2 { color: var(--cream); }
+    #galeria .section-label { color: var(--gold); }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 280px 220px;
+      gap: 3px;
+      margin-top: 48px;
+    }
+    .galeria-item {
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .galeria-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      display: block;
+    }
+    .galeria-item:hover img { transform: scale(1.05); }
+
+    /* ─── TESTIMONIOS ─── */
+    #testimonios {
+      background: var(--cream);
+    }
+
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+    }
+
+    .testimonio-card {
+      padding: 36px;
+      background: var(--warm-white);
+      border-bottom: 2px solid var(--blush);
+    }
+
+    .testimonio-stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    .testimonio-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+    }
+
+    .testimonio-author {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+    }
+
+    /* ─── RESERVAS ─── */
+    #reservas {
+      background: var(--warm-white);
+    }
+
+    .reservas-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .reservas-info h2 { margin-bottom: 20px; }
+
+    .reservas-info p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--mid);
+      margin-bottom: 32px;
+    }
+
+    .reservas-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .reservas-detail-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      font-size: 0.88rem;
+      color: var(--mid);
+    }
+    .reservas-detail-item .icon {
+      width: 36px;
+      height: 36px;
+      background: var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .reserva-form {
+      background: var(--cream);
+      padding: 48px;
+    }
+
+    .form-row {
+      margin-bottom: 24px;
+    }
+
+    .form-row label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+      margin-bottom: 8px;
+    }
+
+    .form-row input,
+    .form-row select {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--line);
+      padding: 10px 0;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+
+    .form-row input:focus,
+    .form-row select:focus {
+      border-bottom-color: var(--deep-rose);
+    }
+
+    .form-row input::placeholder { color: var(--light-mid); }
+
+    /* Calendar styles */
+    .calendar-wrapper {
+      margin-bottom: 24px;
+    }
+    .calendar-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .calendar {
+      width: 100%;
+    }
+    .calendar-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .calendar-nav button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--mid);
+      font-size: 1rem;
+      padding: 4px 8px;
+      transition: color 0.2s;
+    }
+    .calendar-nav button:hover { color: var(--charcoal); }
+    .calendar-month-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--charcoal);
+    }
+    .calendar-days-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 8px;
+    }
+    .calendar-days-header span {
+      text-align: center;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light-mid);
+      padding: 4px 0;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+    }
+    .cal-day {
+      text-align: center;
+      padding: 8px 4px;
+      font-size: 0.85rem;
+      color: var(--mid);
+      cursor: pointer;
+      border-radius: 1px;
+      transition: all 0.2s;
+      background: transparent;
+      border: none;
+      font-family: 'Jost', sans-serif;
+    }
+    .cal-day:hover:not(.disabled):not(.empty) {
+      background: var(--blush);
+      color: var(--charcoal);
+    }
+    .cal-day.selected {
+      background: var(--charcoal);
+      color: var(--cream);
+    }
+    .cal-day.disabled {
+      color: rgba(107,84,72,0.3);
+      cursor: not-allowed;
+    }
+    .cal-day.today {
+      color: var(--deep-rose);
+      font-weight: 500;
+    }
+    .cal-day.empty { cursor: default; }
+
+    /* Time slots */
+    .time-slots-wrapper {
+      margin-bottom: 24px;
+    }
+    .time-slots-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .time-slots {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .time-slot {
+      padding: 8px 4px;
+      text-align: center;
+      font-size: 0.8rem;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      background: var(--warm-white);
+      color: var(--mid);
+      transition: all 0.2s;
+      font-family: 'Jost', sans-serif;
+      border-radius: 1px;
+    }
+    .time-slot:hover:not(.full) {
+      border-color: var(--charcoal);
+      color: var(--charcoal);
+    }
+    .time-slot.selected {
+      background: var(--charcoal);
+      border-color: var(--charcoal);
+      color: var(--cream);
+    }
+    .time-slot.full {
+      background: rgba(200,180,170,0.2);
+      color: rgba(107,84,72,0.4);
+      cursor: not-allowed;
+      text-decoration: line-through;
+    }
+    .time-slot.loading {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      background: var(--charcoal);
+      color: var(--cream);
+      border: none;
+      padding: 16px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 8px;
+      border-radius: 1px;
+      transition: background 0.3s;
+    }
+    .form-submit-btn:hover { background: var(--deep-rose); }
+    .form-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-note {
+      font-size: 0.76rem;
+      color: var(--light-mid);
+      text-align: center;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* ─── CONTACTO ─── */
+    #contacto {
+      background: var(--charcoal);
+      color: var(--cream);
+    }
+    #contacto .section-label { color: var(--gold); }
+    #contacto h2 { color: var(--cream); }
+
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 60px;
+      margin-top: 60px;
+    }
+
+    .contacto-item .contacto-key {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .contacto-item p, .contacto-item a {
+      font-size: 0.95rem;
+      color: rgba(247,243,238,0.75);
+      line-height: 1.7;
+      text-decoration: none;
+    }
+    .contacto-item a:hover { color: var(--blush); }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(247,243,238,0.08);
+      border: 1px solid rgba(247,243,238,0.15);
+      color: var(--cream);
+      padding: 14px 28px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-top: 48px;
+      transition: all 0.3s;
+      border-radius: 1px;
+    }
+    .whatsapp-btn:hover {
+      background: rgba(247,243,238,0.15);
+      color: var(--cream);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #1A1210;
+      color: rgba(247,243,238,0.4);
+      padding: 32px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+    footer a { color: inherit; text-decoration: none; }
+    footer a:hover { color: var(--blush); }
+
+    /* ─── MODAL CONFIRMACIÓN ─── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(28,20,16,0.7);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal {
+      background: var(--warm-white);
+      padding: 60px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      transform: translateY(20px);
+      transition: transform 0.3s;
+    }
+    .modal-overlay.open .modal {
+      transform: translateY(0);
+    }
+    .modal-icon {
+      font-size: 3rem;
+      margin-bottom: 24px;
+    }
+    .modal h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+    .modal p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--mid);
+      margin-bottom: 32px;
+    }
+    .modal .btn-primary {
+      cursor: pointer;
+    }
+
+    /* ─── CANCEL PAGE ─── */
+    .cancel-page {
+      display: none;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      background: var(--warm-white);
+      padding: 80px 40px;
+      text-align: center;
+      flex-direction: column;
+    }
+    .cancel-page.active {
+      display: flex;
+    }
+    .cancel-page .icon { font-size: 4rem; margin-bottom: 24px; }
+    .cancel-page h2 { margin-bottom: 16px; }
+    .cancel-page p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      max-width: 400px;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    /* ─── NOTIFICATION ─── */
+    .notification {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 16px 24px;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      border-left: 3px solid var(--deep-rose);
+      z-index: 3000;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.4s;
+      max-width: 320px;
+    }
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      #inicio { grid-template-columns: 1fr; }
+      .hero-image { display: none; }
+      .hero-text { padding: 60px 40px; }
+      .nosotras-grid,
+      .servicios-intro,
+      .reservas-layout { grid-template-columns: 1fr; gap: 40px; }
+      .servicios-grid { grid-template-columns: 1fr; }
+      .testimonios-grid { grid-template-columns: 1fr; }
+      .contacto-grid { grid-template-columns: 1fr; gap: 32px; }
+      .galeria-grid { grid-template-columns: 1fr 1fr; }
+      header nav { display: none; }
+      .container { padding: 0 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar Toggle -->
+<button id="sidebar-toggle" onclick="toggleSidebar()">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- Sidebar -->
+<div id="sidebar">
+  <div class="sidebar-brand">Estética Cósmica</div>
+  <nav>
+    <a href="#inicio" onclick="closeSidebar()">Inicio</a>
+    <a href="#nosotras" onclick="closeSidebar()">Nosotras</a>
+    <a href="#servicios" onclick="closeSidebar()">Servicios</a>
+    <a href="#galeria" onclick="closeSidebar()">Galería</a>
+    <a href="#testimonios" onclick="closeSidebar()">Testimonios</a>
+    <a href="#reservas" onclick="closeSidebar()" class="highlight">✦ Reservar Cita</a>
+    <a href="#contacto" onclick="closeSidebar()">Contacto</a>
+  </nav>
+</div>
+<div id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<!-- Header -->
+<header>
+  <a href="#inicio" class="logo">Estética <span>Cósmica</span></a>
+  <nav>
+    <a href="#nosotras">Nosotras</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#reservas" class="btn-reservar-header">Reservar</a>
+  </nav>
+</header>
+
+<!-- CANCEL PAGE (shown via URL param) -->
+<div class="cancel-page" id="cancelPage">
+  <div class="icon">🌸</div>
+  <h2>Cita <em>Cancelada</em></h2>
+  <p>Tu cita ha sido cancelada correctamente. El hueco ha quedado disponible para otras clientas. ¡Esperamos verte pronto!</p>
+  <a href="#reservas" class="btn-primary" onclick="document.getElementById('cancelPage').classList.remove('active');">Reservar Nueva Cita</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="mainContent">
+
+<!-- INICIO / HERO -->
+<section id="inicio">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Centro de Estética · Madrid</p>
+    <h1>Belleza que<br>nace de tu<br><em>esencia</em></h1>
+    <p class="hero-desc">Tratamientos faciales, manicura y cuidados personalizados en un espacio donde el bienestar y la confianza se fusionan con la estética más natural.</p>
+    <div class="hero-ctas">
+      <a href="#reservas" class="btn-primary">Reservar Cita</a>
+      <a href="#servicios" class="btn-secondary">Ver Servicios</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-image-inner">
+      <div class="hero-badge">
+        <p>Contacto directo</p>
+        <strong>+34 682 159 877</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTRAS -->
+<section id="nosotras">
+  <div class="container">
+    <div class="nosotras-grid">
+      <div class="nosotras-image"></div>
+      <div class="nosotras-text">
+        <p class="section-label">Quiénes Somos</p>
+        <h2>Una <em>filosofía</em> de belleza consciente</h2>
+        <p>En Estética Cósmica creemos que cada persona merece un cuidado personalizado que potencie su belleza natural. Nuestro equipo de especialistas combina técnica avanzada con una atención cercana y humana.</p>
+        <p>Trabajamos con productos de alta calidad, seleccionados por su eficacia y respeto hacia la piel. Cada tratamiento es una experiencia diseñada para que salgas sintiéndote tú misma, pero en tu mejor versión.</p>
+        <div class="valores-list">
+          <div class="valor-item">
+            <span class="valor-num">01</span>
+            <div class="valor-text">
+              <strong>Personalización</strong>
+              <span>Cada piel es única. Cada tratamiento también.</span>
+            </div>
+          </div>
+          <div class="valor-item">
+            <span class="valor-num">02</span>
+            <div class="valor-text">
+              <strong>Confianza</strong>
+              <span>Transparencia y profesionalidad en cada cita.</span>
+            </div>
+          </div>
+          <div class="valor-item">
+            <span class="valor-num">03</span>
+            <div class="valor-text">
+              <strong>Resultados</strong>
+              <span>Técnicas contrastadas con efectos visibles y duraderos.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <div class="servicios-intro">
+      <div>
+        <p class="section-label">Nuestros Servicios</p>
+        <h2>Tratamientos para<br>cada <em>necesidad</em></h2>
+      </div>
+      <p>Desde limpiezas faciales profundas hasta manicuras y tratamientos avanzados como microneedling, ofrecemos una gama completa de servicios estéticos adaptados a ti.</p>
+    </div>
+    <div class="servicios-grid">
+      <div class="servicio-card">
+        <div class="servicio-icon">✦</div>
+        <h3>Limpieza Facial Profunda</h3>
+        <p class="servicio-desc">Eliminamos impurezas y revitalizamos tu piel con una limpieza adaptada a tu tipo cutáneo. Resultados visibles desde la primera sesión.</p>
+        <span class="servicio-precio">Desde 45€</span>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">◈</div>
+        <h3>Microneedling</h3>
+        <p class="servicio-desc">Técnica avanzada de regeneración celular que estimula el colágeno natural. Ideal para arrugas, cicatrices y pérdida de firmeza.</p>
+        <span class="servicio-precio">Desde 80€</span>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">◇</div>
+        <h3>Tratamiento Facial Premium</h3>
+        <p class="servicio-desc">Protocolo personalizado con activos de alta eficacia. Hidratación, luminosidad y efecto tensor en una única sesión.</p>
+        <span class="servicio-precio">Desde 65€</span>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">❋</div>
+        <h3>Manicura & Nail Art</h3>
+        <p class="servicio-desc">Cuidado completo de manos con acabado semipermanente, clásico o nail art personalizado. Manicuristas expertas y materiales premium.</p>
+        <span class="servicio-precio">Desde 20€</span>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">○</div>
+        <h3>Pedicura Spa</h3>
+        <p class="servicio-desc">Rituales de cuidado para tus pies que combinan exfoliación, hidratación profunda y un acabado perfecto de uñas.</p>
+        <span class="servicio-precio">Desde 30€</span>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">✿</div>
+        <h3>Consultas Online</h3>
+        <p class="servicio-desc">Asesoramiento personalizado sobre tu rutina de belleza y tratamientos más adecuados sin necesidad de desplazarte.</p>
+        <span class="servicio-precio">Desde 25€</span>
+      </div>
+    </div>
+    <div class="servicios-cta">
+      <a href="#reservas" class="btn-primary">Reservar Ahora</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="container">
+    <p class="section-label">Galería</p>
+    <h2>Nuestro <em>espacio</em></h2>
+    <div class="galeria-grid">
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80" alt="Estética Cósmica interior" loading="lazy"/>
+      </div>
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&q=80" alt="Tratamiento facial" loading="lazy"/>
+      </div>
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1610992235683-e39ada807435?w=500&q=80" alt="Manicura" loading="lazy"/>
+      </div>
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=500&q=80" alt="Productos cosméticos" loading="lazy"/>
+      </div>
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=500&q=80" alt="Pedicura spa" loading="lazy"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios">
+  <div class="container">
+    <p class="section-label">Lo que Dicen</p>
+    <h2>Clientas que <em>confían</em> en nosotras</h2>
+    <div class="testimonios-grid">
+      <div class="testimonio-card">
+        <div class="testimonio-stars">★★★★★</div>
+        <p class="testimonio-text">"El trato es increíble, te hacen sentir especial desde el primer momento. La limpieza facial fue una experiencia que no olvidaré."</p>
+        <span class="testimonio-author">— Laura M., Madrid</span>
+      </div>
+      <div class="testimonio-card">
+        <div class="testimonio-stars">★★★★★</div>
+        <p class="testimonio-text">"Llevo años buscando un sitio de confianza para el microneedling y en Estética Cósmica he encontrado profesionales de verdad. Resultados espectaculares."</p>
+        <span class="testimonio-author">— Sofía R., Madrid</span>
+      </div>
+      <div class="testimonio-card">
+        <div class="testimonio-stars">★★★★★</div>
+        <p class="testimonio-text">"La manicura semipermanente dura semanas perfecta. El ambiente es relajante y las chicas son encantadoras. Mi lugar favorito en Madrid."</p>
+        <span class="testimonio-author">— Claudia P., Madrid</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVAS -->
+<section id="reservas">
+  <div class="container">
+    <div class="reservas-layout">
+      <div class="reservas-info">
+        <p class="section-label">Reserva tu Cita</p>
+        <h2>Tu momento<br>de <em>bienestar</em></h2>
+        <p>Reserva en pocos pasos. Recibirás una confirmación por email con todos los detalles y podrás cancelar en cualquier momento desde el enlace del correo.</p>
+        <div class="reservas-detail">
+          <div class="reservas-detail-item">
+            <div class="icon">📍</div>
+            <span>Madrid · Próximamente dirección completa online</span>
+          </div>
+          <div class="reservas-detail-item">
+            <div class="icon">🕐</div>
+            <span>Lunes a Sábado · 9:00 — 20:00h</span>
+          </div>
+          <div class="reservas-detail-item">
+            <div class="icon">📞</div>
+            <span>+34 682 159 877 · WhatsApp disponible</span>
+          </div>
+          <div class="reservas-detail-item">
+            <div class="icon">✉️</div>
+            <span>Confirmación automática por email</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reserva-form">
+        <form id="reservaForm" onsubmit="submitReserva(event)">
+          <div class="form-row">
+            <label for="nombre">Tu Nombre</label>
+            <input type="text" id="nombre" placeholder="Nombre completo" required />
+          </div>
+          <div class="form-row">
+            <label for="servicio">Servicio</label>
+            <select id="servicio" required>
+              <option value="">Selecciona un servicio</option>
+              <option value="Limpieza Facial Profunda">Limpieza Facial Profunda — desde 45€</option>
+              <option value="Microneedling">Microneedling — desde 80€</option>
+              <option value="Tratamiento Facial Premium">Tratamiento Facial Premium — desde 65€</option>
+              <option value="Manicura & Nail Art">Manicura & Nail Art — desde 20€</option>
+              <option value="Pedicura Spa">Pedicura Spa — desde 30€</option>
+              <option value="Consulta Online">Consulta Online — desde 25€</option>
+            </select>
+          </div>
+
+          <!-- Calendar -->
+          <div class="calendar-wrapper">
+            <span class="calendar-label">Selecciona el Día</span>
+            <div class="calendar" id="calendar">
+              <div class="calendar-nav">
+                <button type="button" onclick="prevMonth()">←</button>
+                <span class="calendar-month-year" id="calMonthYear"></span>
+                <button type="button" onclick="nextMonth()">→</button>
+              </div>
+              <div class="calendar-days-header">
+                <span>Lu</span><span>Ma</span><span>Mi</span><span>Ju</span><span>Vi</span><span>Sá</span><span>Do</span>
+              </div>
+              <div class="calendar-grid" id="calendarGrid"></div>
+            </div>
+          </div>
+
+          <!-- Time slots -->
+          <div class="time-slots-wrapper" id="timeSlotsWrapper" style="display:none;">
+            <span class="time-slots-label">Selecciona la Hora</span>
+            <div class="time-slots" id="timeSlots"></div>
+          </div>
+
+          <div class="form-row" id="emailRow" style="display:none;">
+            <label for="email">Tu Email</label>
+            <input type="email" id="email" placeholder="para recibir la confirmación" required />
+          </div>
+
+          <button type="submit" class="form-submit-btn" id="submitBtn" style="display:none;">Confirmar Reserva →</button>
+          <p class="form-note" id="formNote" style="display:none;">Recibirás un correo de confirmación con opción de cancelar en cualquier momento.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <p class="section-label">Contacto</p>
+    <h2>Estamos aquí<br>para <em>ayudarte</em></h2>
+    <div class="contacto-grid">
+      <div class="contacto-item">
+        <span class="contacto-key">Teléfono & WhatsApp</span>
+        <p><a href="tel:+34682159877">+34 682 159 877</a></p>
+        <p style="margin-top:8px; font-size:0.82rem; opacity:0.6;">Atención personalizada</p>
+      </div>
+      <div class="contacto-item">
+        <span class="contacto-key">Horario</span>
+        <p>Lunes a Viernes: 9:00–20:00</p>
+        <p>Sábados: 9:00–15:00</p>
+        <p style="margin-top:4px; opacity:0.6; font-size:0.82rem;">Domingos: cerrado</p>
+      </div>
+      <div class="contacto-item">
+        <span class="contacto-key">Síguenos</span>
+        <p>Próximamente en redes</p>
+        <p style="margin-top:4px; opacity:0.6; font-size:0.82rem;">Instagram · Facebook</p>
+      </div>
+    </div>
+    <a href="https://api.whatsapp.com/send?phone=34682159877" target="_blank" class="whatsapp-btn">
+      💬 Contactar por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2024 Estética Cósmica · Madrid</span>
+  <span>Diseñado con cuidado · <a href="#inicio">Volver arriba ↑</a></span>
+</footer>
+
+</div><!-- end mainContent -->
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-icon">✨</div>
+    <h3>¡Cita <em>Confirmada</em>!</h3>
+    <p id="modalText">Tu reserva ha sido confirmada. Hemos enviado todos los detalles a tu email, incluyendo un enlace para cancelar si lo necesitas.</p>
+    <button class="btn-primary" onclick="closeModal()">Perfecto, gracias</button>
+  </div>
+</div>
+
+<!-- NOTIFICATION -->
+<div class="notification" id="notification"></div>
+
+<script>
+// ─── STATE ───────────────────────────────────────────────────
+// Reservations stored in localStorage keyed by "YYYY-MM-DD_HH:MM"
+// Value: count of bookings at that slot
+const MAX_PER_SLOT = 2;
+const STORAGE_KEY = 'estetica_cosmica_reservas';
+
+let selectedDate = null;
+let selectedTime = null;
+let calYear, calMonth;
+
+// ─── CALENDAR ────────────────────────────────────────────────
+function initCalendar() {
+  const now = new Date();
+  calYear = now.getFullYear();
+  calMonth = now.getMonth();
+  renderCalendar();
+}
+
+function renderCalendar() {
+  const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  document.getElementById('calMonthYear').textContent = `${months[calMonth]} ${calYear}`;
+
+  const grid = document.getElementById('calendarGrid');
+  grid.innerHTML = '';
+
+  const firstDay = new Date(calYear, calMonth, 1).getDay();
+  const startOffset = firstDay === 0 ? 6 : firstDay - 1;
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
+  for (let i = 0; i < startOffset; i++) {
+    const empty = document.createElement('button');
+    empty.className = 'cal-day empty';
+    empty.disabled = true;
+    grid.appendChild(empty);
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const date = new Date(calYear, calMonth, d);
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = d;
+    btn.className = 'cal-day';
+
+    const isPast = date < today;
+    const isSunday = date.getDay() === 0;
+
+    if (isPast || isSunday) {
+      btn.classList.add('disabled');
+      btn.disabled = true;
+    } else {
+      const dateStr = formatDate(date);
+      if (dateStr === selectedDate) btn.classList.add('selected');
+      if (d === today.getDate() && calMonth === today.getMonth() && calYear === today.getFullYear()) btn.classList.add('today');
+      btn.onclick = () => selectDate(dateStr, btn);
+    }
+    grid.appendChild(btn);
+  }
+}
+
+function formatDate(d) {
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function prevMonth() {
+  const now = new Date();
+  if (calYear === now.getFullYear() && calMonth <= now.getMonth()) return;
+  calMonth--;
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  renderCalendar();
+}
+
+function nextMonth() {
+  calMonth++;
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  renderCalendar();
+}
+
+function selectDate(dateStr, btn) {
+  selectedDate = dateStr;
+  selectedTime = null;
+  document.querySelectorAll('.cal-day').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  renderTimeSlots();
+  document.getElementById('timeSlotsWrapper').style.display = 'block';
+  document.getElementById('emailRow').style.display = 'none';
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('formNote').style.display = 'none';
+}
+
+// ─── TIME SLOTS ───────────────────────────────────────────────
+function getSlotKey(date, time) {
+  return `${date}_${time}`;
+}
+
+function getReservas() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  } catch { return {}; }
+}
+
+function saveReservas(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function getSlotCount(date, time) {
+  const reservas = getReservas();
+  return reservas[getSlotKey(date, time)] || 0;
+}
+
+function incrementSlot(date, time) {
+  const reservas = getReservas();
+  const key = getSlotKey(date, time);
+  reservas[key] = (reservas[key] || 0) + 1;
+  saveReservas(reservas);
+}
+
+function decrementSlot(date, time) {
+  const reservas = getReservas();
+  const key = getSlotKey(date, time);
+  if (reservas[key] > 0) reservas[key]--;
+  if (reservas[key] === 0) delete reservas[key];
+  saveReservas(reservas);
+}
+
+function renderTimeSlots() {
+  const times = ['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'];
+  const container = document.getElementById('timeSlots');
+  container.innerHTML = '';
+
+  times.forEach(t => {
+    const count = getSlotCount(selectedDate, t);
+    const isFull = count >= MAX_PER_SLOT;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = t;
+    btn.className = 'time-slot' + (isFull ? ' full' : '');
+    btn.title = isFull ? 'No disponible' : `${MAX_PER_SLOT - count} lugar(es) disponibles`;
+    if (!isFull) {
+      btn.onclick = () => selectTime(t, btn);
+    }
+    container.appendChild(btn);
+  });
+}
+
+function selectTime(time, btn) {
+  selectedTime = time;
+  document.querySelectorAll('.time-slot').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('emailRow').style.display = 'block';
+  document.getElementById('submitBtn').style.display = 'block';
+  document.getElementById('formNote').style.display = 'block';
+}
+
+// ─── FORM SUBMIT ─────────────────────────────────────────────
+function submitReserva(e) {
+  e.preventDefault();
+  const nombre = document.getElementById('nombre').value.trim();
+  const servicio = document.getElementById('servicio').value;
+  const email = document.getElementById('email').value.trim();
+
+  if (!nombre || !servicio || !selectedDate || !selectedTime || !email) {
+    showNotification('Por favor, completa todos los campos.');
+    return;
+  }
+
+  // Check slot again (race condition guard)
+  const count = getSlotCount(selectedDate, selectedTime);
+  if (count >= MAX_PER_SLOT) {
+    showNotification('Lo sentimos, esta franja ya se ha llenado. Por favor elige otra hora.');
+    renderTimeSlots();
+    selectedTime = null;
+    return;
+  }
+
+  // Generate booking ID
+  const bookingId = 'EC' + Date.now();
+
+  // Increment slot
+  incrementSlot(selectedDate, selectedTime);
+
+  // Save booking details for cancellation
+  const bookings = JSON.parse(localStorage.getItem('ec_bookings') || '{}');
+  bookings[bookingId] = { nombre, servicio, date: selectedDate, time: selectedTime, email, cancelled: false };
+  localStorage.setItem('ec_bookings', JSON.stringify(bookings));
+
+  // Send confirmation email via EmailJS-style simulation
+  sendConfirmationEmail({ nombre, servicio, date: selectedDate, time: selectedTime, email, bookingId });
+
+  // Show modal
+  const formattedDate = new Date(selectedDate + 'T12:00:00').toLocaleDateString('es-ES', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  document.getElementById('modalText').innerHTML = `
+    <strong>${nombre}</strong>, tu cita para <strong>${servicio}</strong> está confirmada para el <strong>${formattedDate}</strong> a las <strong>${selectedTime}h</strong>.<br><br>
+    Hemos enviado los detalles a <strong>${email}</strong>. Incluye un enlace para cancelar si lo necesitas.
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+
+  // Reset form
+  document.getElementById('reservaForm').reset();
+  selectedDate = null;
+  selectedTime = null;
+  document.querySelectorAll('.cal-day').forEach(b => b.classList.remove('selected'));
+  document.getElementById('timeSlotsWrapper').style.display = 'none';
+  document.getElementById('emailRow').style.display = 'none';
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('formNote').style.display = 'none';
+  renderCalendar();
+}
+
+// ─── EMAIL SIMULATION ─────────────────────────────────────────
+function sendConfirmationEmail({ nombre, servicio, date, time, email, bookingId }) {
+  const formattedDate = new Date(date + 'T12:00:00').toLocaleDateString('es-ES', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  const cancelUrl = `${window.location.href.split('#')[0]}?cancel=${bookingId}`;
+
+  // EmailJS integration — replace with your own keys
+  const body = `
+Hola ${nombre},
+
+¡Tu cita en Estética Cósmica está confirmada! 🌸
+
+📋 Resumen de tu reserva:
+• Servicio: ${servicio}
+• Fecha: ${formattedDate}
+• Hora: ${time}h
+• ID de reserva: ${bookingId}
+
+📍 Nos vemos en Madrid. Contacto: +34 682 159 877
+
+Si necesitas cancelar tu cita, haz clic en el siguiente enlace:
+${cancelUrl}
+
+¡Hasta pronto!
+Equipo Estética Cósmica
+  `.trim();
+
+  console.log('📧 Email enviado a:', email);
+  console.log(body);
+
+  // If EmailJS is configured, use it:
+  // emailjs.send('service_id', 'template_id', { to_email: email, ... })
+
+  // Show in-page simulation for demo
+  showNotification(`Confirmación enviada a ${email}`);
+}
+
+// ─── CANCEL FLOW ─────────────────────────────────────────────
+function checkCancelParam() {
+  const params = new URLSearchParams(window.location.search);
+  const cancelId = params.get('cancel');
+  if (!cancelId) return;
+
+  const bookings = JSON.parse(localStorage.getItem('ec_bookings') || '{}');
+  const booking = bookings[cancelId];
+
+  if (!booking) {
+    // Unknown booking
+    document.getElementById('cancelPage').classList.add('active');
+    document.getElementById('mainContent').style.display = 'none';
+    return;
+  }
+
+  if (booking.cancelled) {
+    document.getElementById('cancelPage').querySelector('h2').innerHTML = 'Cita ya <em>cancelada</em>';
+    document.getElementById('cancelPage').querySelector('p').textContent = 'Esta cita ya fue cancelada anteriormente.';
+  } else {
+    booking.cancelled = true;
+    bookings[cancelId] = booking;
+    localStorage.setItem('ec_bookings', JSON.stringify(bookings));
+    decrementSlot(booking.date, booking.time);
+  }
+
+  document.getElementById('cancelPage').classList.add('active');
+  document.getElementById('mainContent').style.display = 'none';
+
+  // Clear the URL param
+  history.replaceState({}, '', window.location.pathname);
+}
+
+// ─── UTILS ───────────────────────────────────────────────────
+function showNotification(msg) {
+  const el = document.getElementById('notification');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 3500);
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const toggle = document.getElementById('sidebar-toggle');
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('open');
+  document.getElementById('sidebar-toggle').classList.remove('open');
+}
+
+// Close modal on overlay click
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// ─── INIT ─────────────────────────────────────────────────────
+initCalendar();
+checkCancelParam();
+</script>
+</body>
+</html>
